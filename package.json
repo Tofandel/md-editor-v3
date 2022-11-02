@@ -1,6 +1,6 @@
 {
   "name": "md-editor-v3",
-  "version": "2.3.0-beta.1",
+  "version": "2.3.0",
   "keywords": [
     "vue",
     "vue3",
@@ -43,17 +43,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "build:preview": "vue-tsc --noEmit && vite build --mode=preview",
-    "serve": "vite preview"
-  },
-  "dependencies": {
-    "@types/marked": "^4.0.3"
+    "build": "vite build"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@types/katex": "^0.14.0",
+    "@types/marked": "^4.0.7",
     "@types/mermaid": "^8.2.9",
     "@types/node": "16",
     "@types/prettier": "^2.6.3",

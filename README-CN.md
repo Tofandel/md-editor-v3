@@ -30,6 +30,20 @@ vue3 环境的 Markdown 编辑器，使用 `jsx` 和 `typescript` 语法开发�
 yarn add md-editor-v3
 ```
 
+如果你需要配置`renderer`并且你的项目使用了 typescript，需要将`@types/marked`安装到你的开发依赖中：
+
+```shell
+yarn add @types/marked -D
+```
+
+使用语言、预览主题扩展库：
+
+```shell
+yarn add @vavt/md-editor-extension
+```
+
+更多使用及贡献方式参考：[md-editor-extension](https://github.com/imzbf/md-editor-extension)
+
 ## 用法
 
 ```vue
@@ -109,6 +123,7 @@ const text = ref('# Hello Editor');
   'quote',
   'unorderedList',
   'orderedList',
+  'task', // ^2.4.0
   '-',
   'codeRow',
   'code',
@@ -154,6 +169,7 @@ export interface ToolbarTips {
   quote?: string;
   unorderedList?: string;
   orderedList?: string;
+  task?: string; // ^2.4.0
   codeRow?: string;
   code?: string;
   link?: string;
@@ -260,7 +276,7 @@ export interface StaticTextDefaultValue {
     <template #defToolbars>
       <normal-toolbar title="mark" @onClick="handler">
         <template #trigger>
-          <svg class="md-icon" aria-hidden="true">
+          <svg class="md-editor-icon" aria-hidden="true">
             <use xlink:href="#icon-mark"></use>
           </svg>
         </template>
@@ -625,11 +641,11 @@ const onUploadImg = async (files, callback) => {
   --md-scrollbar-thumb-avtive-color: if(@isDark, #3a3a3a, #00000061);
 }
 
-.md {
+.md-editor {
   .css-vars(false);
 }
 
-.md-dark {
+.md-editor-dark {
   .css-vars(true);
 }
 ```
@@ -637,7 +653,7 @@ const onUploadImg = async (files, callback) => {
 只需要调整对应的 css 变量，比如调整暗夜模式下的背景：
 
 ```css
-.md-dark {
+.md-editor-dark {
   --md-bk-color: #333 !important;
 }
 ```
